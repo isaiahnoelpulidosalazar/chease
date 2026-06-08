@@ -26,7 +26,7 @@ jobs:
         id: version
         shell: pwsh
         run: |
-          $file = Get-Content "chease.cs"
+          $file = Get-Content "Program.cs"
           $line = $file | Select-String "current\sversion\s-\s*(\d+\.\d+\.\d+)"
 
           if (-not $line) {
@@ -41,7 +41,7 @@ jobs:
         id: changes
         shell: pwsh
         run: |
-          $file = Get-Content "chease.cs"
+          $file = Get-Content "Program.cs"
 
           $start = $file | Select-String "// changes:" | Select-Object -First 1
 
@@ -73,7 +73,7 @@ jobs:
         run: dotnet add chease package Microsoft.CodeAnalysis.CSharp
 
       - name: Replace Program.cs
-        run: copy chease.cs chease\Program.cs
+        run: copy Program.cs chease\Program.cs
 
       - name: Publish EXE
         run: dotnet publish chease -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true /p:AssemblyName=chease-v${{ steps.version.outputs.VERSION }} -o publish

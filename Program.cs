@@ -1,17 +1,17 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.Emit;
+// using Microsoft.CodeAnalysis;
+// using Microsoft.CodeAnalysis.CSharp;
+// using Microsoft.CodeAnalysis.Emit;
 
-// current version - 1.0.0
+// current version - 1.0.1
 
 // changes:
-// - add main system
+// - add csproj
 
 internal class Program
 {
